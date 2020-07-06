@@ -1,3 +1,14 @@
+/* ==UserStyle==
+@name Global Dark Mode
+@namespace github.com/suterma/globaldarkmode
+@homepageURL https://github.com/suterma/globaldarkmode
+@version 0.3
+@updateURL https://github.com/suterma/globaldarkmode/raw/master/global-dark-mode-userstyle.user.css
+@description A global dark mode, with a soft touch, to be easy on the eyes.
+@author marcel@qrys.ch
+@license GNU-V3.0
+==/UserStyle== */
+
 @-moz-document url-prefix("http") {
 /* Style in the mozilla format, usable with e.g. the stylus browser extension*/
 /*//TODO experimental*/
