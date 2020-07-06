@@ -1,0 +1,20 @@
+@-moz-document url-prefix("http") {
+/* Style in the mozilla format, usable with e.g. the stylus browser extension*/
+/*//TODO experimental*/
+html {
+    background: white;
+    mix-blend-mode: difference;
+
+    /* move back to the original colors*/
+    /* soften the often too stark contrast a bit*/
+    /* desaturate the often too stark colors a bit*/
+    filter: hue-rotate(180deg) contrast(0.8) saturate(0.7);
+}
+
+/* images are displayed as normal */
+img {
+    /*inverts again, causing normal display*/
+    filter: hue-rotate(180deg) contrast(1.25);
+    mix-blend-mode: difference;
+}
+}
