@@ -1,31 +1,41 @@
-/* ==UserStyle==
-@name Global Dark Mode
-@namespace github.com/suterma/globaldarkmode
-@homepageURL https://github.com/suterma/globaldarkmode
-@version 1.0.4
-@updateURL https://github.com/suterma/globaldarkmode/raw/master/global-dark-mode.user.css
-@description A global dark mode, with a soft touch, to be easy on the eyes.
-@author marcel@qrys.ch
-@license GNU-V3.0
-==/UserStyle== */
+@-moz-document url-prefix("") {
+    /* Style in the mozilla format, usable with e.g. the stylus browser extension*/
+    /*//TODO experimental*/
+    /*--------------------------------------------------------------------------
+     * A global black background to replace the typical white canvas of webpages.
+     * Use just as much transparency to not disturb the mix-blend-mode.
+     *--------------------------------------------------------------------------*/
+    html {
+        background: rgba(0, 0, 0, 0.002);
+        ;
+    }
+    /*--------------------------------------------------------------------------
+     * A global white background to invert the display onto
+     *--------------------------------------------------------------------------*/
+    body {
+        background: white;
+        mix-blend-mode: difference;
 
-@-moz-document url-prefix("http") {
-/* Style in the mozilla format, usable with e.g. the stylus browser extension*/
-/*//TODO experimental*/
-html {
-    background: white;
-    mix-blend-mode: difference;
+        /* move back to the original colors (these were inverted too)*/
+        /* soften the often too stark contrast a bit*/
+        /* desaturate the often too stark colors a bit*/
+        /* //TODO test these settings over a larger set of Websites */
+        /*filter: hue-rotate(180deg) contrast(0.8) saturate(0.7);*/
+        filter: hue-rotate(180deg) contrast(0.7) saturate(0.8);
+        /* filter: hue-rotate(180deg) contrast(0.8) saturate(0.8); is 
+         * - 
+        */
+        /* filter: hue-rotate(180deg) contrast(0.7) saturate(0.8); is 
+         * - good on github.com 
+        */
+    }
 
-    /* move back to the original colors*/
-    /* soften the often too stark contrast a bit*/
-    /* desaturate the often too stark colors a bit*/
-    filter: hue-rotate(180deg) contrast(0.8) saturate(0.7);
-}
-
-/* images are displayed as normal */
-img {
-    /*inverts again, causing normal display*/
-    filter: hue-rotate(180deg) contrast(1.25);
-    mix-blend-mode: difference;
-}
+    /*--------------------------------------------------------------------------
+     * Images should be displayed as normal, thus invert them back 
+     *--------------------------------------------------------------------------*/
+    img {
+        /*inverts again, causing normal display (with hue also back to original)*/
+        filter: hue-rotate(180deg);
+        mix-blend-mode: difference;
+    }
 }
