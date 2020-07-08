@@ -1,0 +1,53 @@
+/* ==UserStyle==
+@name Global Dark Mode
+@namespace github.com/suterma/globaldarkmode
+@homepageURL https://github.com/suterma/globaldarkmode
+@version 1.0.6
+@updateURL https://github.com/suterma/globaldarkmode/raw/master/global-dark-mode.chrome.user.css
+@description A global dark mode, with a soft touch, to be easy on the eyes. (Uses specific structure for Google Chrome)
+@author marcel@qrys.ch
+@license GNU-V3.0
+==/UserStyle== */
+@-moz-document url-prefix("") {
+    /* Style in the mozilla format, usable with e.g. the stylus browser extension*/
+    /*//TODO experimental*/
+    /* Hint: This specific style is crafted for Google Chrome, as it handles some 
+    things different than other browsers */
+    
+    /*--------------------------------------------------------------------------
+     * A global black background to replace the typical white canvas of webpages.
+     * Chrome: Use the difference mode right here, to avoid using it on the body
+     *--------------------------------------------------------------------------*/
+    html {
+       background: black;
+       mix-blend-mode: difference;
+    }
+
+    /*--------------------------------------------------------------------------
+     * Defines the whithe body to render the difference onto. 
+     * Can not hold the mix-blend-mode property together with the background color.
+     *--------------------------------------------------------------------------*/
+    body {
+       background: white;        
+       filter: hue-rotate(180deg) contrast(0.7) saturate(0.8);
+    }
+    
+
+    /*--------------------------------------------------------------------------
+     * Images should be displayed as normal, thus invert them back 
+     *--------------------------------------------------------------------------*/
+    img {
+        /*inverts again, causing normal display (with hue also back to original)*/
+        filter: hue-rotate(180deg);
+        mix-blend-mode: difference;
+    }
+    /* //TODO for video, this seems not to work generally */
+    /* specific solution for srf.ch to exclude their video player */
+    .letterbox-web,
+    .subdivisions__list/*convert the images in the peek display back*/
+    {
+        /*inverts again, causing normal display (with hue also back to original)*/
+        filter: hue-rotate(180deg);
+        mix-blend-mode: difference;
+    }
+}
