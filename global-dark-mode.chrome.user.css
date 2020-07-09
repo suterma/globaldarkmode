@@ -36,18 +36,24 @@
     /*--------------------------------------------------------------------------
      * Images should be displayed as normal, thus invert them back 
      *--------------------------------------------------------------------------*/
-    img {
+    video, img {
         /*inverts again, causing normal display (with hue also back to original)*/
         filter: hue-rotate(180deg);
         mix-blend-mode: difference;
     }
-    /* //TODO for video, this seems not to work generally */
-    /* specific solution for srf.ch to exclude their video player */
+    
+     /*--------------------------------------------------------------------------
+     * Tweaks for some well-known (at least to me) sites
+     *--------------------------------------------------------------------------*/
+    
+    @document domain("srf.ch") {
+    /* For their video player */
     .letterbox-web,
     .subdivisions__list/*convert the images in the peek display back*/
     {
         /*inverts again, causing normal display (with hue also back to original)*/
         filter: hue-rotate(180deg);
         mix-blend-mode: difference;
+    }
     }
 }
