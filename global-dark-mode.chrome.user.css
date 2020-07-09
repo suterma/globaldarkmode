@@ -40,8 +40,9 @@
         /*inverts again, causing normal display (with hue also back to original)*/
         filter: hue-rotate(180deg);
         mix-blend-mode: difference;
-    }
-    
+    }   
+}
+
      /*--------------------------------------------------------------------------
      * Tweaks for some well-known (at least to me) sites
      *--------------------------------------------------------------------------*/
@@ -56,4 +57,3 @@
         mix-blend-mode: difference;
     }
     }
-}
