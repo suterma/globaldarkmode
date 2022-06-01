@@ -4,12 +4,10 @@
 @homepageURL https://github.com/suterma/globaldarkmode
 @version 1.0.7
 @updateURL https://github.com/suterma/globaldarkmode/raw/master/global-dark-mode.chrome.user.css
-@description A global dark mode, with a soft touch, to be easy on the eyes. (Uses specific structure for Google Chrome)
+@description A global dark mode, with a soft touch, to be easy on the eyes. (Uses specific structure for Google Chrome). To be used with the Stylus browser extension.
 @author marcel@qrys.ch
 @license GNU-V3.0
 ==/UserStyle== */
-/* Style in the mozilla format, usable with e.g. the stylus browser extension*/
-/*//TODO experimental*/
 /* Hint: This specific style is crafted for Google Chrome, as it handles some 
     things different than other browsers */
 /*--------------------------------------------------------------------------
@@ -29,7 +27,6 @@ body {
     background: white;
     filter: hue-rotate(180deg) contrast(0.7) saturate(0.8);
 }
-
 
 /*--------------------------------------------------------------------------
 * Images should be displayed as normal, thus invert them back 
