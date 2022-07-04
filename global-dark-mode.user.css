@@ -2,41 +2,24 @@
 @name Global Dark Mode
 @namespace github.com/suterma/globaldarkmode
 @homepageURL https://github.com/suterma/globaldarkmode
-@version 1.0.7
+@version 1.0.8
 @updateURL https://github.com/suterma/globaldarkmode/raw/master/global-dark-mode.user.css
-@description A global dark mode, with a soft touch, to be easy on the eyes.
+@description A global dark mode, with a soft touch, to be easy on the eyes. Optimised for the FireFox browser.
 @author marcel@qrys.ch
 @license GNU-V3.0
 ==/UserStyle== */
-@-moz-document url-prefix("") {
-    /* Style in the mozilla format, usable with e.g. the stylus browser extension*/
-    /*//TODO experimental*/
-    /*--------------------------------------------------------------------------
-     * A global black background to replace the typical white canvas of webpages.
-     * Use just as much transparency to not disturb the mix-blend-mode.
-     *--------------------------------------------------------------------------*/
-    html {
-        background: rgba(0, 0, 0, 0.002);
-    }
 
+    /* Style in the mozilla format, usable with e.g. the stylus browser extension*/
+ 
     /*--------------------------------------------------------------------------
-     * Use the mix-blend-mode directly on the document
+     * Use the filter (instead of the mix-blend-mode) directly on the document
      * This has proven to be the lesser invasive variant, than defining it on the body
      *--------------------------------------------------------------------------*/
     html {
-        mix-blend-mode: difference;
-        /* move back to the original colors (these were inverted too)*/
+        /* first, invert the whole page, then */
         /* soften the often too stark contrast a bit*/
         /* desaturate the often too stark colors a bit*/
-        /* //TODO test these settings over a larger set of Websites */
-        filter: hue-rotate(180deg) contrast(0.8) saturate(0.8);
-    }
-
-    /*--------------------------------------------------------------------------
-     * A global white background to invert the display onto
-     *--------------------------------------------------------------------------*/
-    body {
-        background: white;
+        filter: invert(1) hue-rotate(180deg) contrast(0.8) saturate(0.8);;
     }
 
     /*--------------------------------------------------------------------------
@@ -44,18 +27,6 @@
      *--------------------------------------------------------------------------*/
     video,
     img {
-        /*inverts again, causing normal display (with hue also back to original)*/
-        filter: hue-rotate(180deg);
-        mix-blend-mode: difference;
+        /*inverts again, causing normal display*/
+        filter: invert(1) hue-rotate(180deg) contrast(1) saturate(1);;
     }
-
-    /* //TODO for video, this seems not to work generally */
-    /* specific solution for srf.ch to exclude their video player */
-    .letterbox-web,
-    .subdivisions__list/*convert the images in the peek display back*/
-    {
-        /*inverts again, causing normal display (with hue also back to original)*/
-        filter: hue-rotate(180deg);
-        mix-blend-mode: difference;
-    }
-}
